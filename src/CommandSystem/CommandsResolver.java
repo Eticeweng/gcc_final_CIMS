@@ -216,9 +216,19 @@ public class CommandsResolver {
         CommandPipeline pipeline = new CommandPipeline();
         switch (cmds[0]){
             case "user":
+                if (cmds.length != Commands.USER.getParamsCount() + 1){
+                    pipeline.setCommand(Commands.USER)
+                            .setParams(paramsResolve(Arrays.copyOfRange(cmds, 1, cmds.length)));
+                    break;
+                }
                 pipeline = userResolve(Arrays.copyOfRange(cmds, 1, cmds.length));
                 break;
             case "car":
+                if (cmds.length != Commands.CAR.getParamsCount() + 1){
+                    pipeline.setCommand(Commands.CAR)
+                            .setParams(paramsResolve(Arrays.copyOfRange(cmds, 1, cmds.length)));
+                    break;
+                }
                 pipeline = carResolve(Arrays.copyOfRange(cmds, 1, cmds.length));
                 break;
             default:
