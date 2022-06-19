@@ -40,6 +40,7 @@ public class CommandsResolver {
                 if (fields.length < Commands.PROFILE.getParamsCount() + 1){
                     pipeline.setCommand(Commands.PROFILE)
                             .setParams(paramsResolve(Arrays.copyOfRange(fields, 1, fields.length)));
+                    break;
                 }
                 pipeline = profileResolve(Arrays.copyOfRange(fields, 1, fields.length));
                 break;
@@ -47,6 +48,7 @@ public class CommandsResolver {
                 if (fields.length < Commands.USER.getParamsCount() + 1){
                     pipeline.setCommand(Commands.USER)
                             .setParams(paramsResolve(Arrays.copyOfRange(fields, 1, fields.length)));
+                    break;
                 }
                 pipeline = userResolve(Arrays.copyOfRange(fields, 1, fields.length));
                 break;
@@ -54,6 +56,7 @@ public class CommandsResolver {
                 if (fields.length < Commands.ADMIN.getParamsCount() + 1){
                     pipeline.setCommand(Commands.ADMIN)
                             .setParams(paramsResolve(Arrays.copyOfRange(fields, 1, fields.length)));
+                    break;
                 }
                 pipeline = adminResolve(Arrays.copyOfRange(fields, 1, fields.length));
                 break;
